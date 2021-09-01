@@ -15,7 +15,7 @@
           class="inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-medium tracking-widest">Admin</span>
         <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">Welcome, {{ auth()->user()->name }}
         </h1>
-        <p class="mb-8 leading-relaxed">Chillwave portland ugh, knausgaard fam polaroid iPhone. Man braid swag typewriter
+        {{-- <p class="mb-8 leading-relaxed">Chillwave portland ugh, knausgaard fam polaroid iPhone. Man braid swag typewriter
           affogato, hella selvage wolf narwhal dreamcatcher.</p>
         <div class="flex w-full md:justify-start justify-center items-end">
           <div class="relative mr-4 md:w-full lg:w-full xl:w-1/2 w-2/4">
@@ -26,11 +26,12 @@
           <button
             class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Button</button>
         </div>
-        <p class="text-sm mt-2 text-gray-500 mb-8 w-full">Neutra shabby chic ramps, viral fixie.</p>
+        <p class="text-sm mt-2 text-gray-500 mb-8 w-full">Neutra shabby chic ramps, viral fixie.</p> --}}
 
       </div>
       <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
-        <img class="object-cover object-center rounded" alt="hero" src="https://dummyimage.com/720x600">
+        <img class="object-cover object-center rounded border-2 px-8" alt="hero"
+          src="{{ asset('/images/logo/site-logo.png') }}">
       </div>
     </div>
   </section>

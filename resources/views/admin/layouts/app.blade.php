@@ -7,7 +7,7 @@
     content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-  <title>Driver</title>
+  <title>Porto Montenegro</title>
 </head>
 
 <body class="bg-white-50">
@@ -60,7 +60,7 @@
     <div class="container px-4 mx-auto md:flex md:items-center">
 
       <div class="flex justify-between items-center">
-        <a href="{{ route('admin.home') }}" class="font-bold text-xl text-indigo-600">Fire</a>
+        <a href="{{ route('admin.home') }}" class="font-bold text-xl text-indigo-600">Porto Montenegro</a>
         <button
           class="border border-solid border-gray-600 px-3 py-1 rounded text-gray-600 opacity-50 hover:opacity-75 md:hidden"
           id="navbar-toggle">

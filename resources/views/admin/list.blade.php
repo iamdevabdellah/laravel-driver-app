@@ -4,14 +4,11 @@
 
   <section class="text-gray-600 body-font">
     <div class="container px-5 py-24 mx-auto">
-      <div class="flex flex-wrap w-full mb-20">
-        <div class="lg:w-1/2 w-full mb-6 lg:mb-0">
-          <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">Pitchfork Kickstarter Taxidermy</h1>
-          <div class="h-1 w-20 bg-indigo-500 rounded"></div>
-        </div>
-        <p class="lg:w-1/2 w-full leading-relaxed text-gray-500">Whatever cardigan tote bag tumblr hexagon brooklyn
-          asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep
-          jianbing selfies heirloom prism food truck ugh squid celiac humblebrag.</p>
+      <div class="flex flex-col w-full mb-12 text-left lg:text-center">
+        <h2 class="mb-4 text-xs font-semibold tracking-widest text-black uppercase title-font"></h2>
+        <h1 class="mb-6 text-2xl font-black tracking-tighter text-black sm:text-5xl title-font"> Porto Montenegro <br
+            class="md:hidden">Records</h1>
+        <p class="mx-auto text-base font-medium leading-relaxed text-blueGray-700 lg:w-2/3">Record Listing</p>
       </div>
 
       <!-- This example requires Tailwind CSS v2.0+ -->
@@ -26,6 +23,11 @@
                     <th scope="col"
                       class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                       Name
+                    </th>
+
+                    <th scope="col"
+                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Date
                     </th>
 
                     <th scope="col"
@@ -58,9 +60,7 @@
                       Damage Image
                     </th>
 
-                    <th scope="col" class="relative px-6 py-3">
-                      <span class="sr-only">Edit</span>
-                    </th>
+
 
                   </tr>
                 </thead>
@@ -78,6 +78,10 @@
                         </td>
 
                         <td class="px-6 py-4 whitespace-nowrap">
+                          <div class="text-sm text-gray-900">{{ $post->date }}</div>
+                        </td>
+
+                        <td class="px-6 py-4 whitespace-nowrap">
                           <div class="text-sm text-gray-900">{{ $post->car }}</div>
                         </td>
 
@@ -92,7 +96,7 @@
                         <td class="px-6 py-4 whitespace-nowrap">
                           <span
                             class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                            <a href="{{ asset('images/posts/' . $post->damageImage) }}">Image</a>
+                            <a href="{{ asset('images/posts/' . $post->damageImage) }}" target="_blank">Image</a>
                           </span>
                         </td>
 
@@ -103,22 +107,16 @@
                         <td class="px-6 py-4 whitespace-nowrap">
                           <span
                             class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                            <a href="{{ asset('images/posts/' . $post->damageImage) }}">Image</a>
+                            <a href="{{ asset('images/posts/' . $post->damageImage) }}" target="_blank">Image</a>
                           </span>
                         </td>
 
-                        {{-- <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                      Admin
-                    </td>
-    
-                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                      <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
-                    </td> --}}
+
 
                       </tr>
                     @endforeach
                   @else
-                    <p>There is no posts</p>
+                    <p class="p-2">There is no posts</p>
                   @endif
 
 
@@ -134,23 +132,4 @@
 
   </section>
 
-
-  {{-- <div class="flex justify-center">
-    <div class="w-full bg-white p-10 rounded-lg">
-
-      <h2 class="text-4xl text-gray-900 mb-4">Listing</h2>
-
-
-
-
-
-
-
-
-
-
-    </div>
-
-
-  </div> --}}
 @endsection

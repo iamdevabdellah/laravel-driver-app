@@ -31,13 +31,15 @@ class PostController extends Controller
             'distance' => 'required',
             'cost' => 'required',
             'damage' => 'required',
-            'damageImage' => 'image',
+            'damageImage' => 'image|required',
             'body' => 'required'
         ]);
 
         $photo = $request->file('damageImage');
-        $fileName = rand(1111, 9999) . date('ymdhis.') . $photo->getClientOriginalExtension();
-        $photo->move(public_path('images/posts/'), $fileName);
+        if($photo->isValid('damageImage')) {
+            $fileName = rand(1111, 9999) . date('ymdhis.') . $photo->getClientOriginalExtension();
+            $photo->move(public_path('images/posts/'), $fileName);
+        }
 //        if($photo->isValid()) {
 //            $fileName = rand(1111, 9999) . date('ymdhis.') . $photo->getClientOriginalExtension();
 //        }
@@ -54,9 +56,8 @@ class PostController extends Controller
             'body' => $request->body
         ]);
 
-        return back();
+        return back()->with('success', 'Post added successfully!');
 
-        // redirect
-        //return redirect()->route('home');
+     
     }
 }
