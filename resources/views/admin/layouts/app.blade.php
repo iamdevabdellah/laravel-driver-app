@@ -69,7 +69,8 @@
       </div>
 
       <div class="hidden md:flex flex-col md:flex-row md:ml-auto mt-3 md:mt-0" id="navbar-collapse">
-        <a href="{{ route('admin.home') }}" class="p-2 lg:px-4 md:mx-2 text-white rounded bg-indigo-600">Home</a>
+        <a href="{{ route('admin.home') }}"
+          class="p-2 lg:px-4 md:mx-2 text-gray-600 rounded hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300">Home</a>
         <a href="{{ route('admin.dashboard') }}"
           class="p-2 lg:px-4 md:mx-2 text-gray-600 rounded hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300">Dashboard</a>
         {{-- <a href="{{ route('admin.posts') }}"
@@ -77,8 +78,8 @@
 
         <a href="{{ route('admin.lists') }}"
           class="p-2 lg:px-4 md:mx-2 text-gray-600 rounded hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300">Lists</a>
-        <a href="#"
-          class="p-2 lg:px-4 md:mx-2 text-gray-600 rounded hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300">Contact</a>
+        <a href="{{ route('admin.search') }}"
+          class="p-2 lg:px-4 md:mx-2 text-gray-600 rounded hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300">Search</a>
         @guest
           <a href="{{ route('login') }}"
             class="p-2 lg:px-4 md:mx-2 text-indigo-600 text-center border border-transparent rounded hover:bg-indigo-100 hover:text-indigo-700 transition-colors duration-300">Login</a>

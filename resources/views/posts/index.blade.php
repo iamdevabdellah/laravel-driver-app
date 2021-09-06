@@ -2,10 +2,29 @@
 
 @section('content')
   <div class="flex justify-center">
-    <div class="w-8/12 bg-white p-10 rounded-lg">
+    <div class="w-6/12 bg-white p-10 rounded-lg">
+
+      @if (session()->has('success'))
+        <div class="p-5 rounded-lg border border-green-400 bg-green-300 text-green-900">
+          <h2 class="font-bold text-xl pb-2">{{ session()->get('success') }}</h2>
+          <p class="pt-2">
+            Thank you for posting.
+          </p>
+        </div>
+
+      @endif
+
       <h2 class="text-4xl text-gray-900 mb-4">Enter Information</h2>
+
+
       <form action="{{ route('posts') }}" method="post" enctype="multipart/form-data" class="mb-4">
         @csrf
+
+        <div class="mb-4">
+          <label for="name" class="sr-only">Name</label>
+          <input type="hidden" name="name" id="name" placeholder="" class="br-gray-100 border-2 w-full p-4 rounded-lg"
+            value="{{ auth()->user()->name }}">
+        </div>
 
         <div class="mb-4">
           <label for="date" class="sr-only">Date</label>
@@ -20,7 +39,7 @@
         </div>
 
         <div class="mb-4">
-          <label for="car" class="sr-only">Car</label>
+          <label for="car" class="sr-only">Vehicle</label>
           <input type="text" name="car" id="car" placeholder="Car"
             class="br-gray-100 border-2 w-full p-4 rounded-lg @error('car') border-red-500 @enderror"
             value="{{ old('car') }}">
@@ -82,7 +101,7 @@
           @enderror
         </div>
 
-        <div class="mb-4">
+        {{-- <div class="mb-4">
           <label for="body" class="sr-only"></label>
           <textarea name="body" id="body" cols="30" rows="3" placeholder="Say Something!"
             class="bg-gray-100 border-dashed border-4 w-full p-4 rounded-lg @error('body') border-red-500 @enderror"
@@ -92,7 +111,7 @@
               {{ $message }}
             </div>
           @enderror
-        </div>
+        </div> --}}
 
         <div>
           <button type="submit" class="bg-blue-500 text-white px-4 py-3 rounded font-medium">Post</button>

@@ -8,7 +8,10 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ListController;
 use App\Http\Controllers\UserPostController;
+use App\Http\Controllers\SearchController;
 use Illuminate\Support\Facades\Route;
+use App\Exports\PostsExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 
 Route::get('/', function () {
@@ -31,5 +34,15 @@ Route::post('/posts', [PostController::class, 'store']);
 Route::get('/admin/lists', [ListController::class, 'index'])->name('admin.lists')->middleware('is_admin');
 Route::get('/admin/home', [AdminController::class, 'index'])->name('admin.home')->middleware('is_admin');
 Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard')->middleware('is_admin');
+
+
+Route::get('/admin/search', [SearchController::class, 'view'])->name('admin.search');
+
+// Route::get('/admin/download', function() {
+//     return Excel::download(new PostsExport, 'posts.xlsx');
+// });
+
+Route::get('/admin/excel', [PostController::class, 'export'])->name('admin.excel');
+
 // Route::get('/admin/posts', [PostController::class, 'index'])->name('admin.posts')->middleware('is_admin');
 //Route::get('/users/{user:username}/posts', [UserPostController::class, 'index'])->name('users.posts');

@@ -14,17 +14,41 @@
       <!-- This example requires Tailwind CSS v2.0+ -->
       <div class="flex flex-col">
         <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+
+
+
           <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+
+            <form action="{{ route('admin.search') }}" method="GET">
+              @csrf
+              <div class="container h-auto flex justify-left items-left mb-2">
+                <div class="relative rounded-lg">
+                  <div class="absolute top-4 left-3">
+                    <i class="fa fa-search text-gray-400 z-20 hover:text-gray-500"></i>
+                  </div>
+                  <input type="text" name="nameSearch"
+                    class="h-12 w-96 pl-10 pr-20 rounded-lg z-0 focus:shadow focus:outline-none border-2"
+                    placeholder="Search Name">
+                  <input type="date" name="dateSearchFrom"
+                    class="h-12 w-96 pl-10 pr-20 rounded-lg z-0 focus:shadow focus:outline-none border-2">
+
+                  <input type="date" name="dateSearchTo"
+                    class="h-12 w-96 pl-10 pr-20 rounded-lg z-0 focus:shadow focus:outline-none border-2">
+
+                  <div class="absolute top-2 right-1">
+                    <button class="h-8 w-20 text-white rounded-lg bg-red-500 hover:bg-red-600"
+                      type="submit">Search</button>
+                  </div>
+                </div>
+              </div>
+            </form>
+
+
             <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
 
               <table class="min-w-full divide-y divide-gray-200">
                 <thead class="bg-gray-50">
                   <tr>
-
-                    {{-- <th scope="col"
-                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Select
-                    </th> --}}
 
                     <th scope="col"
                       class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -74,15 +98,6 @@
                   @if ($posts->count())
                     @foreach ($posts as $post)
                       <tr>
-
-                        {{-- <td class="px-6 py-4 whitespace-nowrap">
-                          <div class="flex items-center">
-                            <input id="check" name="check" type="checkbox"
-                              class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
-                            <label for="check" class="ml-2 block text-sm text-gray-900">
-                            </label>
-                          </div>
-                        </td> --}}
 
                         <td class="px-6 py-4 whitespace-nowrap">
                           <div class="flex items-center">
@@ -145,7 +160,19 @@
 
                 </tbody>
               </table>
+
+
+
             </div>
+
+            <div class="top-2 right-1 mt-2">
+              <a class="h-8 w-40 text-white rounded-lg bg-red-500 hover:bg-red-600 p-2"
+                href="{{ route('admin.excel', compact('posts')) }}">
+                <button type="submit">Export To Excel</button>
+              </a>
+            </div>
+
+
           </div>
         </div>
       </div>

@@ -22,5 +22,23 @@ class AdminUserSeeder extends Seeder
             'is_admin' => '1',
             'username' => 'admin',
         ]);
+
+        User::create([
+            'name' => 'batman',
+            'email' => 'batman@gotham.com',
+            'email_verified_at' => now(),
+            'password' => bcrypt('batman123'),
+            'is_admin' => '0',
+            'username' => 'batman',
+        ]);
+
+        User::create([
+            'name' => 'superman',
+            'email' => 'superman@gotham.com',
+            'email_verified_at' => now(),
+            'password' => bcrypt('batman123'),
+            'is_admin' => '0',
+            'username' => 'superman',
+        ]);
     }
 }

@@ -1,0 +1,89 @@
+            <form action="{{ route('admin.search') }}" method="GET">
+              @csrf
+              <div>
+                <input type="text" name="nameSearch" id="nameSearch" required
+                  class="h-10 w-3/12 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded border-2 mb-2"
+                  placeholder="Search By Name">
+                {{-- <input type="date" name="dateSearch" id=""
+                  class="h-10 w-4/12 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded border-2 mb-2"
+                  placeholder=""> --}}
+              </div>
+              <button
+                class="group relative w-3/12 flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mb-4"
+                type="submit">Search</button>
+            </form>
+
+
+
+
+
+
+           
+    <div class="flex flex-col items-center justify-center h-screen">
+        <div class="flex flex-col">
+            <label class="inline-flex items-center mt-3">
+                <input type="checkbox" class="form-checkbox h-5 w-5 text-gray-600" checked><span class="ml-2 text-gray-700">label</span>
+            </label>
+            <label class="inline-flex items-center mt-3">
+                <input type="checkbox" class="form-checkbox h-5 w-5 text-gray-600" checked><span class="ml-2 text-gray-700">label</span>
+            </label>
+        </div>
+    </div>
+
+
+    <div class="relative inline-flex">
+  <svg class="w-2 h-2 absolute top-0 right-0 m-4 pointer-events-none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 412 232"><path d="M206 171.144L42.678 7.822c-9.763-9.763-25.592-9.763-35.355 0-9.763 9.764-9.763 25.592 0 35.355l181 181c4.88 4.882 11.279 7.323 17.677 7.323s12.796-2.441 17.678-7.322l181-181c9.763-9.764 9.763-25.592 0-35.355-9.763-9.763-25.592-9.763-35.355 0L206 171.144z" fill="#648299" fill-rule="nonzero"/></svg>
+  <select class="border border-gray-300 rounded-full text-gray-600 h-10 pl-5 pr-10 bg-white hover:border-gray-400 focus:outline-none appearance-none">
+    <option>Choose a color</option>
+    <option>Red</option>
+    <option>Blue</option>
+  </select>
+</div>
+
+
+
+
+ <form action="#" class="bg-gray-100 shadow-sm rounded-md p-8">
+
+        <div class="mb-6">
+          {{-- <label for="name" class="mb-3 block text-gray-700">Name</label> --}}
+          <input type="hidden" id="name" name="name"
+            class="bg-white rounded-md border border-gray-200 p-3 focus:outline-none w-full"
+            value="{{ auth()->user()->name }}" placeholder="">
+        </div>
+
+        <div class="mb-6">
+          <label for="date" class="mb-3 block text-gray-700">Date</label>
+          <input type="date" id="date" name="date"
+            class="bg-white rounded-md border border-gray-200 p-3 focus:outline-none w-full @error('date') border-red-500 @enderror"
+            value="{{ old('date') }}" placeholder="">
+        </div>
+
+        <div class="mb-6">
+          <label for="car" class="mb-3 block text-gray-700">Vehicle</label>
+          <input type="text" id="car" name="car"
+            class="bg-white rounded-md border border-gray-200 p-3 focus:outline-none w-full @error('car') border-red-500 @enderror"
+            value="{{ old('car') }}" placeholder="">
+        </div>
+
+        <div class="mb-6">
+          <label for="email" class="mb-3 block text-gray-700">Email address:</label>
+          <input type="email" id="email" class="bg-white rounded-md border border-gray-200 p-3 focus:outline-none w-full"
+            placeholder="john.doe@company.com" required>
+        </div>
+
+        <div class="mb-8">
+          <label for="company_size" class="mb-3 block text-gray-700">Company size:</label>
+          <select id="company_size" class="bg-white rounded-md border border-gray-200 p-3 focus:outline-none w-full"
+            required>
+            <option value="">Select an option</option>
+            <option value="yes">Yes</option>
+            <option value="no">no</option>
+          </select>
+        </div>
+
+        <button type="submit"
+          class="py-3 px-12 bg-blue-500 hover:bg-teal-600 mr-5 rounded-md text-white text-lg focus:outline-none w-full">Create
+        </button>
+
+      </form>
