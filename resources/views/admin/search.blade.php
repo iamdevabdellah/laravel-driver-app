@@ -140,7 +140,8 @@
                             @if ($post->billImage == null)
                               <span href="">No Image</span>
                             @else
-                              <a href="{{ asset('images/posts/bill/' . $post->billImage) }}" target="_blank">Image</a>
+                              <a href="{{ asset('images/posts/bill/' . $post->billImage) }}"
+                                target="_blank">{{ asset('images/posts/bill/' . $post->billImage) }}</a>
                             @endif
                           </span>
                         </td>
@@ -156,7 +157,8 @@
                               <span href="">No Image</span>
                             @else
                               <a href="{{ asset('images/posts/damage/' . $post->damageImage) }}"
-                                target="_blank">Image</a>
+                                target="_blank">{{ asset('images/posts/damage/' . $post->damageImage) }}</a>
+
                             @endif
                           </span>
                         </td>
