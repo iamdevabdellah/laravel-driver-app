@@ -21,10 +21,10 @@
                 <thead class="bg-gray-50">
                   <tr>
 
-                    {{-- <th scope="col"
+                    <th scope="col"
                       class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Select
-                    </th> --}}
+                      Date
+                    </th>
 
                     <th scope="col"
                       class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -33,12 +33,12 @@
 
                     <th scope="col"
                       class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Date
+                      Vehicle Type
                     </th>
 
                     <th scope="col"
                       class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Car
+                      Vehicle
                     </th>
 
                     <th scope="col"
@@ -53,7 +53,7 @@
 
                     <th scope="col"
                       class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Fuel Bill
+                      Fuel Bill Image
                     </th>
 
                     <th scope="col"
@@ -83,6 +83,9 @@
                             </label>
                           </div>
                         </td> --}}
+                        <td class="px-6 py-4 whitespace-nowrap">
+                          <div class="text-sm text-gray-900">{{ $post->date }}</div>
+                        </td>
 
                         <td class="px-6 py-4 whitespace-nowrap">
                           <div class="flex items-center">
@@ -93,11 +96,11 @@
                         </td>
 
                         <td class="px-6 py-4 whitespace-nowrap">
-                          <div class="text-sm text-gray-900">{{ $post->date }}</div>
+                          <div class="text-sm text-gray-900">{{ $post->vehicle }}</div>
                         </td>
 
                         <td class="px-6 py-4 whitespace-nowrap">
-                          <div class="text-sm text-gray-900">{{ $post->car }}</div>
+                          <div class="text-sm text-gray-900">{{ $post->vehicle_type }}</div>
                         </td>
 
                         <td class="px-6 py-4 whitespace-nowrap">
@@ -105,16 +108,16 @@
                         </td>
 
                         <td class="px-6 py-4 whitespace-nowrap">
-                          <div class="text-sm text-gray-900">{{ $post->cost }}</div>
+                          <div class="text-sm text-gray-900">{{ $post->bill }}</div>
                         </td>
 
                         <td class="px-6 py-4 whitespace-nowrap">
                           <span
                             class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                            @if ($post->damageImage == null)
+                            @if ($post->billImage == null)
                               <span href="">No Image</span>
                             @else
-                              <a href="{{ asset('images/posts/' . $post->damageImage) }}" target="_blank">Image</a>
+                              <a href="{{ asset('images/posts/bill/' . $post->billImage) }}" target="_blank">Image</a>
                             @endif
                           </span>
                         </td>
@@ -129,7 +132,8 @@
                             @if ($post->damageImage == null)
                               <span href="">No Image</span>
                             @else
-                              <a href="{{ asset('images/posts/' . $post->damageImage) }}" target="_blank">Image</a>
+                              <a href="{{ asset('images/posts/damage/' . $post->damageImage) }}"
+                                target="_blank">Image</a>
                             @endif
                           </span>
                         </td>

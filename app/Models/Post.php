@@ -12,11 +12,13 @@ class Post extends Model
     protected $fillable = [
         'date',
         'name',
-        'car',
+        'vehicle',
         'distance',
-        'cost',
+        'bill',
+        'billImage',
         'damage',
-        'damageImage'
+        'damageImage',
+        'vehicle_type',
     ];
 
     public function user() {

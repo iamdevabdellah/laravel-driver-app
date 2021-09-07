@@ -30,7 +30,7 @@ class SearchController extends Controller
 
         if($searchName != "" && $searchDateFrom != "" && $searchDateTo != ""){
             $posts = DB::table('posts')
-            ->where('car', 'LIKE', '%'.$searchName.'%')
+            ->where('vehicle', 'LIKE', '%'.$searchName.'%')
             ->where('date', '>=', $searchDateFrom)
             ->where('date', '<=', $searchDateTo)
             ->get();
@@ -39,10 +39,18 @@ class SearchController extends Controller
         
         elseif($searchName != "" && $searchDateFrom == "" && $searchDateTo == "") {
             $posts = DB::table('posts')
-            ->where('car', 'LIKE', '%'.$searchName.'%')
+            ->where('vehicle', 'LIKE', '%'.$searchName.'%')
             ->get();
 
         }
+        elseif($searchName != "" && $searchDateFrom != "" && $searchDateTo == "") {
+            $posts = DB::table('posts')
+            ->where('vehicle', 'LIKE', '%'.$searchName.'%')
+            ->where('date', '=', $searchDateFrom)
+            ->get();
+
+        }
+
         else{
             $posts = Post::latest()->with('user');
         }

@@ -28,12 +28,14 @@
                   </div>
                   <input type="text" name="nameSearch"
                     class="h-12 w-96 pl-10 pr-20 rounded-lg z-0 focus:shadow focus:outline-none border-2"
-                    placeholder="Search Name">
+                    placeholder="Search Vehicle Type">
                   <input type="date" name="dateSearchFrom"
-                    class="h-12 w-96 pl-10 pr-20 rounded-lg z-0 focus:shadow focus:outline-none border-2">
+                    class="h-12 w-96 pl-10 pr-20 rounded-lg z-0 focus:shadow focus:outline-none border-2"
+                    placeholder="Date From">
 
                   <input type="date" name="dateSearchTo"
-                    class="h-12 w-96 pl-10 pr-20 rounded-lg z-0 focus:shadow focus:outline-none border-2">
+                    class="h-12 w-96 pl-10 pr-20 rounded-lg z-0 focus:shadow focus:outline-none border-2"
+                    placeholder="Date To">
 
                   <div class="absolute top-2 right-1">
                     <button class="h-8 w-20 text-white rounded-lg bg-red-500 hover:bg-red-600"
@@ -52,17 +54,22 @@
 
                     <th scope="col"
                       class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Name
-                    </th>
-
-                    <th scope="col"
-                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                       Date
                     </th>
 
                     <th scope="col"
                       class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Car
+                      Name
+                    </th>
+
+                    <th scope="col"
+                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Vehicle
+                    </th>
+
+                    <th scope="col"
+                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Vehicle Type
                     </th>
 
                     <th scope="col"
@@ -77,7 +84,7 @@
 
                     <th scope="col"
                       class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Fuel Bill
+                      Fuel Bill Image
                     </th>
 
                     <th scope="col"
@@ -100,6 +107,10 @@
                       <tr>
 
                         <td class="px-6 py-4 whitespace-nowrap">
+                          <div class="text-sm text-gray-900">{{ $post->date }}</div>
+                        </td>
+
+                        <td class="px-6 py-4 whitespace-nowrap">
                           <div class="flex items-center">
                             <div class="text-sm font-medium text-gray-900">
                               {{ $post->name }}
@@ -108,11 +119,11 @@
                         </td>
 
                         <td class="px-6 py-4 whitespace-nowrap">
-                          <div class="text-sm text-gray-900">{{ $post->date }}</div>
+                          <div class="text-sm text-gray-900">{{ $post->vehicle }}</div>
                         </td>
 
                         <td class="px-6 py-4 whitespace-nowrap">
-                          <div class="text-sm text-gray-900">{{ $post->car }}</div>
+                          <div class="text-sm text-gray-900">{{ $post->vehicle_type }}</div>
                         </td>
 
                         <td class="px-6 py-4 whitespace-nowrap">
@@ -120,16 +131,16 @@
                         </td>
 
                         <td class="px-6 py-4 whitespace-nowrap">
-                          <div class="text-sm text-gray-900">{{ $post->cost }}</div>
+                          <div class="text-sm text-gray-900">{{ $post->bill }}</div>
                         </td>
 
                         <td class="px-6 py-4 whitespace-nowrap">
                           <span
                             class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                            @if ($post->damageImage == null)
+                            @if ($post->billImage == null)
                               <span href="">No Image</span>
                             @else
-                              <a href="{{ asset('images/posts/' . $post->damageImage) }}" target="_blank">Image</a>
+                              <a href="{{ asset('images/posts/bill/' . $post->billImage) }}" target="_blank">Image</a>
                             @endif
                           </span>
                         </td>
@@ -144,7 +155,8 @@
                             @if ($post->damageImage == null)
                               <span href="">No Image</span>
                             @else
-                              <a href="{{ asset('images/posts/' . $post->damageImage) }}" target="_blank">Image</a>
+                              <a href="{{ asset('images/posts/damage/' . $post->damageImage) }}"
+                                target="_blank">Image</a>
                             @endif
                           </span>
                         </td>
@@ -166,11 +178,17 @@
                   href="{{ route('admin.excel', ['posts' => $posts]) }}">
                   <button type="submit">Export To Excel</button>
                 </a> --}}
-                <button class="h-8 w-40 text-white rounded-lg bg-red-500 hover:bg-red-600 p-2"
+                {{-- <button class="h-8 w-40 text-white rounded-lg bg-red-500 hover:bg-red-600 p-2"
                   onclick="tablesToExcel(['example'], ['Posts'], 'posts_report.xls', 'Excel')">Export
-                  To Excel</button>
+                  To Excel</button> --}}
 
-                <button onclick="ExportToExcel('xlsx')">Export table to excel</button>
+                {{-- <button class="h-8 w-40 text-white rounded-lg bg-red-500 hover:bg-red-600 p-2 pb-2"
+                  onclick="ExportToExcel('xlsx')">Export
+                  To Excel</button> --}}
+
+                <a class="h-8 w-40 text-white rounded-lg bg-red-500 hover:bg-red-600 p-2 m-2">
+                  <button onclick="ExportToExcel('xlsx')">Export To Excel</button>
+                </a>
 
 
 

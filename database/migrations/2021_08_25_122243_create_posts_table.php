@@ -17,10 +17,12 @@ class CreatePostsTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('name');
+            $table->string('vehicle_type');
             $table->date('date');
-            $table->string('car');
+            $table->string('vehicle');
             $table->string('distance');
-            $table->string('cost');
+            $table->string('bill');
+            $table->string('billImage')->unique()->nullable();
             $table->string('damage');
             $table->string('damageImage')->unique()->nullable();
             $table->timestamps();

@@ -32,31 +32,33 @@ class PostController extends Controller
         $this->validate($request, [
             'date' => 'required | date',
             'name' => 'required',
-            'car' => 'required | max:255',
+            'vehicle_type' => 'required',
+            'vehicle' => 'required | max:255',
             'distance' => 'required',
-            'cost' => 'required',
+            'bill' => 'required',
+            'billImage' => 'image | required | mimes:jpeg,jpg,png | max:5000',
             'damage' => 'required',
             'damageImage' => 'image | nullable | mimes:jpeg,jpg,png | max:5000'
         ]);
-
-        // $photo = $request->file('damageImage');
-        // if($photo->isValid('damageImage')) {
-        //     $fileName = rand(1111, 9999) . date('ymdhis.') . $photo->getClientOriginalExtension();
-        //     $photo->move(public_path('images/posts/'), $fileName);
-        // }
-
         
         if($request->hasFile('damageImage')) {
             $photo = $request->file('damageImage');
             $fileName = rand(1111, 9999) . date('ymdhis.') . $photo->getClientOriginalExtension();
-            $photo->move(public_path('images/posts/'), $fileName);
+            $photo->move(public_path('images/posts/damage/'), $fileName);
+
+            $photo2 = $request->file('billImage');
+            $fileName2 = rand(1111, 9999) . date('ymdhis.') . $photo2->getClientOriginalExtension();
+            $photo2->move(public_path('images/posts/bill/'), $fileName2);
+
 
             $request->user()->posts()->create([
                 'date' => $request->date,
                 'name' => $request->name,
-                'car' => $request->car,
+                'vehicle' => $request->vehicle,
+                'vehicle_type' => $request->vehicle_type,
                 'distance' => $request->distance,
-                'cost' => $request->cost,
+                'bill' => $request->bill,
+                'billImage' => $fileName2,
                 'damage' => $request->damage,
                 'damageImage' => $fileName,
             ]);
@@ -64,23 +66,33 @@ class PostController extends Controller
             return back()->with('success', 'Post added successfully!');
         }
 
+        else {
+            $photo2 = $request->file('billImage');
+            $fileName2 = rand(1111, 9999) . date('ymdhis.') . $photo2->getClientOriginalExtension();
+            $photo2->move(public_path('images/posts/bill/'), $fileName2);
 
-        
-//        if($photo->isValid()) {
-//            $fileName = rand(1111, 9999) . date('ymdhis.') . $photo->getClientOriginalExtension();
-//        }
+            $request->user()->posts()->create([
+                'date' => $request->date,
+                'name' => $request->name,
+                'vehicle' => $request->vehicle,
+                'vehicle_type' => $request->vehicle_type,
+                'distance' => $request->distance,
+                'bill' => $request->bill,
+                'billImage' => $fileName2,
+                'damage' => $request->damage,
+            ]);
 
-       // $photo->storeAs('images', $fileName);
 
-        $request->user()->posts()->create([
-            'date' => $request->date,
-            'name' => $request->name,
-            'car' => $request->car,
-            'distance' => $request->distance,
-            'cost' => $request->cost,
-            'damage' => $request->damage
-            // 'damageImage' => $fileName,
-        ]);
+        }
+
+        // $request->user()->posts()->create([
+        //     'date' => $request->date,
+        //     'name' => $request->name,
+        //     'vehicle' => $request->vehicle,
+        //     'distance' => $request->distance,
+        //     'bill' => $request->bill,
+        //     'damage' => $request->damage
+        // ]);
 
         return back()->with('success', 'Post added successfully!');
 

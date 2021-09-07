@@ -23,6 +23,7 @@ class User extends Authenticatable
         'password',
         'username',
         'is_admin',
+        'vehicle_type',
     ];
 
     /**

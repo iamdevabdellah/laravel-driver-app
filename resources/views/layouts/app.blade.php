@@ -60,39 +60,39 @@
     <div class="container px-4 mx-auto md:flex md:items-center">
 
       <div class="flex justify-between items-center">
-        <a href="{{ route('home') }}" class="font-bold text-xl text-indigo-600">Porto Montenegro</a>
+        <a href="{{ route('home') }}" class="font-bold text-xl text-blue-900">Porto Montenegro</a>
         <button
-          class="border border-solid border-gray-600 px-3 py-1 rounded text-gray-600 opacity-50 hover:opacity-75 md:hidden"
+          class="border border-solid border-blue-900 px-3 py-1 rounded text-blue-900 opacity-50 hover:opacity-75 md:hidden"
           id="navbar-toggle">
           <i class="fas fa-bars"></i>
         </button>
       </div>
 
       <div class="hidden md:flex flex-col md:flex-row md:ml-auto mt-3 md:mt-0" id="navbar-collapse">
-        <a href="{{ route('home') }}"
-          class="p-2 lg:px-4 md:mx-2 text-gray-600 rounded hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300">Home</a>
-        <a href="{{ route('dashboard') }}"
-          class="p-2 lg:px-4 md:mx-2 text-gray-600 rounded hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300">Dashboard</a>
-        <a href="{{ route('posts') }}"
-          class="p-2 lg:px-4 md:mx-2 text-gray-600 rounded hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300">Post</a>
+        @auth
+          <a href="{{ route('home') }}"
+            class="p-2 lg:px-4 md:mx-2 text-blue-900 rounded hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300">Home</a>
 
-        <a href="#"
-          class="p-2 lg:px-4 md:mx-2 text-gray-600 rounded hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300">Contact</a>
+          <a href="{{ route('dashboard') }}"
+            class="p-2 lg:px-4 md:mx-2 text-gray-600 rounded hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300">Dashboard</a>
+
+          <a href="{{ route('posts') }}"
+            class="p-2 lg:px-4 md:mx-2 text-gray-600 rounded hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300">Post
+            Record</a>
+        @endauth
+
         @guest
           <a href="{{ route('login') }}"
-            class="p-2 lg:px-4 md:mx-2 text-indigo-600 text-center border border-transparent rounded hover:bg-indigo-100 hover:text-indigo-700 transition-colors duration-300">Login</a>
+            class="p-2 lg:px-4 md:mx-2 text-blue-900 text-center border border-transparent rounded hover:bg-blue-900 hover:text-white transition-colors duration-300">Login</a>
           <a href="{{ route('register') }}"
-            class="p-2 lg:px-4 md:mx-2 text-indigo-600 text-center border border-solid border-indigo-600 rounded hover:bg-indigo-600 hover:text-white transition-colors duration-300 mt-1 md:mt-0 md:ml-1">Signup</a>
+            class="p-2 lg:px-4 md:mx-2 text-blue-900 text-center border border-solid border-blue-900 rounded hover:bg-blue-900 hover:text-white transition-colors duration-300 mt-1 md:mt-0 md:ml-1">Signup</a>
         @endguest
 
         @auth
-          <a href=""
-            class="p-2 lg:px-4 md:mx-2 text-indigo-600 text-center border border-transparent rounded hover:bg-indigo-100 hover:text-indigo-700 transition-colors duration-300">{{ auth()->user()->name }}</a>
-
           <form action="{{ route('logout') }}" method="post">
             @csrf
             <button
-              class="p-2 lg:px-4 md:mx-2 text-indigo-600 text-center border border-transparent rounded hover:bg-indigo-100 hover:text-indigo-700 transition-colors duration-300"
+              class="p-2 lg:px-4 md:mx-2 text-blue-900 text-center border border-transparent rounded hover:bg-blue-900 hover:text-white transition-colors duration-300"
               type="submit">Logout</button>
           </form>
         @endauth

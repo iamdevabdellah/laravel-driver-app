@@ -8,7 +8,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="{{ asset('css/app.css') }}">
   <script src="{{ asset('js/export.js') }}"></script>
-  <script src="https://cdn.jsdelivr.net/gh/linways/table-to-excel@v1.0.4/dist/tableToExcel.js"></script>
+  {{-- <script src="https://cdn.jsdelivr.net/gh/linways/table-to-excel@v1.0.4/dist/tableToExcel.js"></script> --}}
   <script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
   <script>
     function ExportToExcel(type, fn, dl) {
@@ -82,7 +82,7 @@
     <div class="container px-4 mx-auto md:flex md:items-center">
 
       <div class="flex justify-between items-center">
-        <a href="{{ route('admin.home') }}" class="font-bold text-xl text-indigo-600">Porto Montenegro</a>
+        <a href="{{ route('admin.home') }}" class="font-bold text-xl text-blue-900">Porto Montenegro</a>
         <button
           class="border border-solid border-gray-600 px-3 py-1 rounded text-gray-600 opacity-50 hover:opacity-75 md:hidden"
           id="navbar-toggle">
@@ -92,27 +92,24 @@
 
       <div class="hidden md:flex flex-col md:flex-row md:ml-auto mt-3 md:mt-0" id="navbar-collapse">
         <a href="{{ route('admin.home') }}"
-          class="p-2 lg:px-4 md:mx-2 text-gray-600 rounded hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300">Home</a>
+          class="p-2 lg:px-4 md:mx-2 text-blue-900 rounded hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300">Home</a>
         <a href="{{ route('admin.dashboard') }}"
-          class="p-2 lg:px-4 md:mx-2 text-gray-600 rounded hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300">Dashboard</a>
+          class="p-2 lg:px-4 md:mx-2 text-blue-900 rounded hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300">Dashboard</a>
         {{-- <a href="{{ route('admin.posts') }}"
           class="p-2 lg:px-4 md:mx-2 text-gray-600 rounded hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300">Post</a> --}}
 
         <a href="{{ route('admin.lists') }}"
           class="p-2 lg:px-4 md:mx-2 text-gray-600 rounded hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300">Lists</a>
         <a href="{{ route('admin.search') }}"
-          class="p-2 lg:px-4 md:mx-2 text-gray-600 rounded hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300">Search</a>
+          class="p-2 lg:px-4 md:mx-2 text-blue-900 rounded hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300">Search</a>
         @guest
           <a href="{{ route('login') }}"
-            class="p-2 lg:px-4 md:mx-2 text-indigo-600 text-center border border-transparent rounded hover:bg-indigo-100 hover:text-indigo-700 transition-colors duration-300">Login</a>
+            class="p-2 lg:px-4 md:mx-2 text-blue-900 text-center border border-transparent rounded hover:bg-indigo-100 hover:text-white transition-colors duration-300">Login</a>
           <a href="{{ route('register') }}"
-            class="p-2 lg:px-4 md:mx-2 text-indigo-600 text-center border border-solid border-indigo-600 rounded hover:bg-indigo-600 hover:text-white transition-colors duration-300 mt-1 md:mt-0 md:ml-1">Signup</a>
+            class="p-2 lg:px-4 md:mx-2 text-blue-900 text-center border border-solid border-indigo-600 rounded hover:bg-indigo-600 hover:text-white transition-colors duration-300 mt-1 md:mt-0 md:ml-1">Signup</a>
         @endguest
 
         @auth
-          <a href=""
-            class="p-2 lg:px-4 md:mx-2 text-indigo-600 text-center border border-transparent rounded hover:bg-indigo-100 hover:text-indigo-700 transition-colors duration-300">{{ auth()->user()->name }}</a>
-
           <form action="{{ route('logout') }}" method="post">
             @csrf
             <button

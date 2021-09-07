@@ -14,7 +14,7 @@
 
       @endif
 
-      <h2 class="text-4xl text-gray-900 mb-4">Enter Information</h2>
+      <h2 class="text-4xl text-blue-900 mb-4 font-bold">Enter Record</h2>
 
 
       <form action="{{ route('posts') }}" method="post" enctype="multipart/form-data" class="mb-4">
@@ -22,8 +22,14 @@
 
         <div class="mb-4">
           <label for="name" class="sr-only">Name</label>
-          <input type="hidden" name="name" id="name" placeholder="" class="br-gray-100 border-2 w-full p-4 rounded-lg"
+          <input type="hidden" name="name" id="name" placeholder="" class="br-gray-100 border-2 w-full p-2 rounded-lg"
             value="{{ auth()->user()->name }}">
+        </div>
+
+        <div class="mb-4">
+          <label for="vehicle_type" class="sr-only">Vehicle Type</label>
+          <input type="hidden" name="vehicle_type" id="vehicle_type" placeholder=""
+            class="br-gray-100 border-2 w-full p-2 rounded-lg" value="{{ auth()->user()->vehicle_type }}">
         </div>
 
         <div class="mb-4">
@@ -39,11 +45,11 @@
         </div>
 
         <div class="mb-4">
-          <label for="car" class="sr-only">Vehicle</label>
-          <input type="text" name="car" id="car" placeholder="Car"
-            class="br-gray-100 border-2 w-full p-4 rounded-lg @error('car') border-red-500 @enderror"
-            value="{{ old('car') }}">
-          @error('car')
+          <label for="vehicle" class="sr-only">Vehicle</label>
+          <input type="text" name="vehicle" id="vehicle" placeholder="Vehicle"
+            class="br-gray-100 border-2 w-full p-4 rounded-lg @error('vehicle') border-red-500 @enderror"
+            value="{{ old('vehicle') }}">
+          @error('vehicle')
             <div class="text-red-500 mt-2 text-sm">
               {{ $message }}
             </div>
@@ -63,11 +69,23 @@
         </div>
 
         <div class="mb-4">
-          <label for="cost" class="sr-only">Fuel Cost</label>
-          <input type="text" name="cost" id="distance" placeholder="Fuel Cost"
-            class="br-gray-100 border-2 w-full p-4 rounded-lg @error('cost') border-red-500 @enderror"
-            value="{{ old('cost') }}">
-          @error('cost')
+          <label for="bill" class="sr-only">Fuel Cost</label>
+          <input type="text" name="bill" id="bill" placeholder="Fuel Cost"
+            class="br-gray-100 border-2 w-full p-4 rounded-lg @error('bill') border-red-500 @enderror"
+            value="{{ old('bill') }}">
+          @error('bill')
+            <div class="text-red-500 mt-2 text-sm">
+              {{ $message }}
+            </div>
+          @enderror
+        </div>
+
+        <div class="mb-4">
+          <label for="billImage" class="sr-only">Bill Image</label>
+          <input type="file" name="billImage" id="billImage" placeholder="Bill Image"
+            class="br-gray-100 border-2 w-full p-4 rounded-lg @error('billImage') border-red-500 @enderror"
+            value="{{ old('billImage') }}">
+          @error('billImage')
             <div class="text-red-500 mt-2 text-sm">
               {{ $message }}
             </div>
@@ -76,9 +94,18 @@
 
         <div class="mb-4">
           <label for="damage" class="sr-only">Damage</label>
-          <input type="text" name="damage" id="damage" placeholder="Any Damage Yes/No"
+          {{-- <input type="text" name="damage" id="damage" placeholder="Any Damage Yes/No"
             class="br-gray-100 border-2 w-full p-4 rounded-lg @error('damage') border-red-500 @enderror"
-            value="{{ old('damage') }}">
+            value="{{ old('damage') }}"> --}}
+
+          <select id="damage" name="damage"
+            class="bg-white rounded-md border border-gray-200 p-3 focus:outline-none w-full @error('damage') border-red-500 @enderror"
+            value="{{ old('damage') }}" required>
+            <option selected="true" disabled>Any Damage</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+          </select>
+
           @error('damage')
             <div class="text-red-500 mt-2 text-sm">
               {{ $message }}
@@ -114,7 +141,8 @@
         </div> --}}
 
         <div>
-          <button type="submit" class="bg-blue-500 text-white px-4 py-3 rounded font-medium">Post</button>
+          <button type="submit" class="bg-blue-900 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded">Post
+            Record</button>
         </div>
 
       </form>

@@ -21,24 +21,27 @@ class AdminUserSeeder extends Seeder
             'password' => bcrypt('batman123'),
             'is_admin' => '1',
             'username' => 'admin',
+            'vehicle_type' => '',
         ]);
 
         User::create([
-            'name' => 'batman',
-            'email' => 'batman@gotham.com',
+            'name' => 'Rick Dawson',
+            'email' => 'rick@porto.com',
             'email_verified_at' => now(),
             'password' => bcrypt('batman123'),
             'is_admin' => '0',
-            'username' => 'batman',
+            'username' => 'Ricky',
+            'vehicle_type' => 'Car',
         ]);
 
         User::create([
-            'name' => 'superman',
-            'email' => 'superman@gotham.com',
+            'name' => 'Steve Grayham',
+            'email' => 'steve@porto.com',
             'email_verified_at' => now(),
             'password' => bcrypt('batman123'),
             'is_admin' => '0',
-            'username' => 'superman',
+            'username' => 'Steve',
+            'vehicle_type' => 'Boat',
         ]);
     }
 }

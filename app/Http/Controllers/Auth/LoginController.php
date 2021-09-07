@@ -32,7 +32,7 @@ class LoginController extends Controller
             }
             else {
                 // login Admin
-                return redirect()->route('home');
+                return redirect()->route('dashboard');
             }
         } 
         // login User
