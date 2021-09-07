@@ -87,3 +87,22 @@
         </button>
 
       </form>
+
+
+
+
+      use Illuminate\Contracts\View\View;
+
+      rivate $posts;
+
+    public function __construct($posts) {
+
+        $this->posts = $posts;
+    }
+
+    public function view(): View {
+
+        return view('exports.posts' [
+            'posts' => $this->posts,
+        ]);
+    }

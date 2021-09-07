@@ -24,8 +24,6 @@ class SearchController extends Controller
 
     public function view(Request $request){
 
-        // $search = $request['searchDate'] ?? "";
-
         $searchName = $request->input('nameSearch');
         $searchDateFrom = $request->input('dateSearchFrom');
         $searchDateTo = $request->input('dateSearchTo');
@@ -38,12 +36,7 @@ class SearchController extends Controller
             ->get();
 
         }
-        // elseif($searchName != "" && $searchDate == "") {
-        //     $posts = DB::table('posts')
-        //     ->where('name', 'LIKE', '%'.$searchName.'%')
-        //     ->get();
-
-        // }
+        
         elseif($searchName != "" && $searchDateFrom == "" && $searchDateTo == "") {
             $posts = DB::table('posts')
             ->where('car', 'LIKE', '%'.$searchName.'%')

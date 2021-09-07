@@ -7,6 +7,28 @@
     content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+  <script src="{{ asset('js/export.js') }}"></script>
+  <script src="https://cdn.jsdelivr.net/gh/linways/table-to-excel@v1.0.4/dist/tableToExcel.js"></script>
+  <script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
+  <script>
+    function ExportToExcel(type, fn, dl) {
+      var elt = document.getElementById('example');
+      var wb = XLSX.utils.table_to_book(elt, {
+        sheet: "sheet1"
+      });
+      return dl ?
+        XLSX.write(wb, {
+          bookType: type,
+          bookSST: true,
+          type: 'base64'
+        }) :
+        XLSX.writeFile(wb, fn || ('MySheetName.' + (type || 'xlsx')));
+    }
+  </script>
+
+
+
+
   <title>Porto Montenegro</title>
 </head>
 

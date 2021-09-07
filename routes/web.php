@@ -44,5 +44,3 @@ Route::get('/admin/search', [SearchController::class, 'view'])->name('admin.sear
 
 Route::get('/admin/excel', [PostController::class, 'export'])->name('admin.excel');
 
-// Route::get('/admin/posts', [PostController::class, 'index'])->name('admin.posts')->middleware('is_admin');
-//Route::get('/users/{user:username}/posts', [UserPostController::class, 'index'])->name('users.posts');

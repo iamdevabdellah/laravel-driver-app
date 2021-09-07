@@ -12,6 +12,7 @@ class PostController extends Controller
     public function __construct() {
 
         $this->middleware(['auth']);
+
     }
 
 
@@ -87,10 +88,7 @@ class PostController extends Controller
     }
 
     public function export(Request $request) {
-
-
-dd($request->nameSearch);
-
+        
         return Excel::download(new PostsExport, 'posts.xlsx');
     }
 

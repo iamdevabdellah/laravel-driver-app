@@ -46,7 +46,7 @@
 
             <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
 
-              <table class="min-w-full divide-y divide-gray-200">
+              <table class="min-w-full divide-y divide-gray-200" id="example">
                 <thead class="bg-gray-50">
                   <tr>
 
@@ -153,6 +153,7 @@
 
                       </tr>
                     @endforeach
+
                   @else
                     <p class="p-2">There is no posts</p>
                   @endif
@@ -160,17 +161,28 @@
 
                 </tbody>
               </table>
+              <div class="top-2 right-1 mt-2">
+                {{-- <a class="h-8 w-40 text-white rounded-lg bg-red-500 hover:bg-red-600 p-2"
+                  href="{{ route('admin.excel', ['posts' => $posts]) }}">
+                  <button type="submit">Export To Excel</button>
+                </a> --}}
+                <button class="h-8 w-40 text-white rounded-lg bg-red-500 hover:bg-red-600 p-2"
+                  onclick="tablesToExcel(['example'], ['Posts'], 'posts_report.xls', 'Excel')">Export
+                  To Excel</button>
+
+                <button onclick="ExportToExcel('xlsx')">Export table to excel</button>
+
+
+
+
+
+              </div>
 
 
 
             </div>
 
-            <div class="top-2 right-1 mt-2">
-              <a class="h-8 w-40 text-white rounded-lg bg-red-500 hover:bg-red-600 p-2"
-                href="{{ route('admin.excel', compact('posts')) }}">
-                <button type="submit">Export To Excel</button>
-              </a>
-            </div>
+
 
 
           </div>
