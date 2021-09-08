@@ -28,7 +28,8 @@ Route::post('/login', [LoginController::class, 'store']);
 Route::post('/logout', [LogoutController::class, 'store'])->name('logout');
 
 Route::get('/posts', [PostController::class, 'index'])->name('posts');
-Route::post('/posts', [PostController::class, 'store']);
+Route::post('/posts', [PostController::class, 'store']); 
+Route::delete('/posts/{post}', [PostController::class, 'destroy'])->name('post.destroy');
 
 
 Route::get('/admin/lists', [ListController::class, 'index'])->name('admin.lists')->middleware('is_admin');
@@ -38,9 +39,4 @@ Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('adm
 
 Route::get('/admin/search', [SearchController::class, 'view'])->name('admin.search');
 
-// Route::get('/admin/download', function() {
-//     return Excel::download(new PostsExport, 'posts.xlsx');
-// });
-
-Route::get('/admin/excel', [PostController::class, 'export'])->name('admin.excel');
 

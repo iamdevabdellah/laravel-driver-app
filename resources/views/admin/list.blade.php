@@ -6,7 +6,7 @@
     <div class="container px-5 py-24 mx-auto">
       <div class="flex flex-col w-full mb-12 text-left lg:text-center">
         <h2 class="mb-4 text-xs font-semibold tracking-widest text-black uppercase title-font"></h2>
-        <h1 class="mb-6 text-2xl font-black tracking-tighter text-black sm:text-5xl title-font"> Porto Montenegro <br
+        <h1 class="mb-6 text-2xl font-black tracking-tighter text-blue-900 sm:text-5xl title-font"> Porto Montenegro <br
             class="md:hidden">Records</h1>
         <p class="mx-auto text-base font-medium leading-relaxed text-blueGray-700 lg:w-2/3">Record Listing</p>
       </div>
@@ -66,6 +66,11 @@
                       Damage Image
                     </th>
 
+                    <th scope="col"
+                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Delete
+                    </th>
+
 
 
                   </tr>
@@ -96,11 +101,11 @@
                         </td>
 
                         <td class="px-6 py-4 whitespace-nowrap">
-                          <div class="text-sm text-gray-900">{{ $post->vehicle }}</div>
+                          <div class="text-sm text-gray-900">{{ $post->vehicle_type }}</div>
                         </td>
 
                         <td class="px-6 py-4 whitespace-nowrap">
-                          <div class="text-sm text-gray-900">{{ $post->vehicle_type }}</div>
+                          <div class="text-sm text-gray-900">{{ $post->vehicle }}</div>
                         </td>
 
                         <td class="px-6 py-4 whitespace-nowrap">
@@ -137,6 +142,13 @@
                             @endif
                           </span>
                         </td>
+
+                        {{-- <td class="px-6 py-4 whitespace-nowrap">
+                          <span
+                            class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-white">
+                            <a href="{{ route('') }}">Delete</a>
+                          </span>
+                        </td> --}}
 
 
 

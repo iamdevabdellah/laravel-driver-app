@@ -94,10 +94,6 @@
 
         <div class="mb-4">
           <label for="damage" class="sr-only">Damage</label>
-          {{-- <input type="text" name="damage" id="damage" placeholder="Any Damage Yes/No"
-            class="br-gray-100 border-2 w-full p-4 rounded-lg @error('damage') border-red-500 @enderror"
-            value="{{ old('damage') }}"> --}}
-
           <select id="damage" name="damage"
             class="bg-white rounded-md border border-gray-200 p-3 focus:outline-none w-full @error('damage') border-red-500 @enderror"
             value="{{ old('damage') }}" required>
@@ -105,7 +101,6 @@
             <option value="Yes">Yes</option>
             <option value="No">No</option>
           </select>
-
           @error('damage')
             <div class="text-red-500 mt-2 text-sm">
               {{ $message }}

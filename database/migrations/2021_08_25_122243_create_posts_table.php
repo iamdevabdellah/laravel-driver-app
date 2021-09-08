@@ -21,7 +21,7 @@ class CreatePostsTable extends Migration
             $table->date('date');
             $table->string('vehicle');
             $table->string('distance');
-            $table->string('bill');
+            $table->string('bill')->nullable();
             $table->string('billImage')->unique()->nullable();
             $table->string('damage');
             $table->string('damageImage')->unique()->nullable();

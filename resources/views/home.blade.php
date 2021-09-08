@@ -10,7 +10,7 @@
             WELCOME
           </p>
           <h3 class="text-3xl sm:text-5xl leading-normal font-extrabold tracking-tight text-gray-900">
-            Porto <span class="text-blue-900">Montenegro</span>
+            <span class="text-blue-900">Porto Montenegro</span>
           </h3>
           <img class="mx-auto h-auto w-auto" src="{{ asset('/images/logo/site-logo.png') }}" alt="Workflow">
         </div>
