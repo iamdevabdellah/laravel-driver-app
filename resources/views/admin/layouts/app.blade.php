@@ -116,6 +116,16 @@
   <!-- navbar ends here -->
   @yield('content')
 
+  <footer class="bg-gray-100 text-3xl text-white text-center fixed inset-x-0 bottom-0 p-4">
+    <div class="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
+      <p class="text-gray-500 text-sm text-center sm:text-left">© 2021 Porto Montenegro. All Rights Reserved.
+        <a href="" class="text-gray-900 ml-1" target="_blank"></a>
+      </p>
+      <span class="sm:ml-auto sm:mt-0 mt-2 sm:w-auto w-full sm:text-left text-center text-gray-500 text-sm">
+        Designed By Merine Marketing Service.
+      </span>
+    </div>
+  </footer>
   <script>
     // grab everything we need
     const btn = document.querySelector("button.mobile-menu-button");
