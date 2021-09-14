@@ -27,7 +27,7 @@
         </div>
 
         <div class="mb-4">
-          <label for="vehicle_type" class="sr-only">Vehicle Type</label>
+          <label for="vehicle_type" class="sr-only"></label>
           <input type="hidden" name="vehicle_type" id="vehicle_type" placeholder=""
             class="br-gray-100 border-2 w-full p-2 rounded-lg" value="{{ auth()->user()->vehicle_type }}">
         </div>
@@ -44,7 +44,7 @@
           @enderror
         </div>
 
-        <div class="mb-4">
+        {{-- <div class="mb-4">
           <label for="vehicle" class="sr-only">Vehicle</label>
           <input type="text" name="vehicle" id="vehicle" placeholder="Vehicle"
             class="br-gray-100 border-2 w-full p-4 rounded-lg @error('vehicle') border-red-500 @enderror"
@@ -54,7 +54,68 @@
               {{ $message }}
             </div>
           @enderror
+        </div> --}}
+        <div class="relative mb-4">
+          <label for="vehicle" class="leading-7 text-sm text-gray-600"></label>
+
+          <select id="vehicle" name="vehicle"
+            class="bg-white rounded-md border border-gray-200 p-3 focus:outline-none w-full @error('vehicle') border-red-500 @enderror"
+            value="{{ old('vehicle') }}" required>
+            <option selected="true" disabled>Select Vehicle</option>
+            <option value="TV AS 219">TV AS 219</option>
+            <option value="TV AT 658">TV AT 658</option>
+            <option value="TV AV 257">TV AV 257</option>
+            <option value="TV AK 954">TV AK 954</option>
+            <option value="TV AK 586">TV AK 586</option>
+            <option value="TV AK 973">TV AK 973</option>
+            <option value="TV AP 624">TV AP 624</option>
+            <option value="TV AP 556">TV AP 556</option>
+            <option value="TV AP 670">TV AP 670</option>
+            <option value="TV AP 291">TV AP 291</option>
+            <option value="TV AM 531">TV AM 531</option>
+            <option value="TV AP 870">TV AP 870</option>
+            <option value="TV AL 195">TV AL 195</option>
+            <option value="TV AK 975">TV AK 975</option>
+            <option value="TV AP 622">TV AP 622</option>
+            <option value="TV AK 885">TV AK 885</option>
+            <option value="TV AL 017">TV AL 017</option>
+            <option value="TV AK 987">TV AK 987</option>
+            <option value="TV AM 150">TV AM 150</option>
+            <option value="TV AK 957">TV AK 957</option>
+            <option value="TV AK 916">TV AK 916</option>
+            <option value="TV AP 167">TV AP 167</option>
+            <option value="TV AM 759">TV AM 759</option>
+            <option value="TV AL 498">TV AL 498</option>
+            <option value="TV AL 048">TV AL 048</option>
+            <option value="TV AR 088">TV AR 088</option>
+            <option value="TV AL 104">TV AL 104</option>
+            <option value="TV AL 179">TV AL 179</option>
+            <option value="TV AK 998">TV AK 998</option>
+            <option value="TV AL 183">TV AL 183</option>
+            <option value="TV AP 575">TV AP 575</option>
+            <option value="TV AP 578">TV AP 578</option>
+            <option value="TV AL 550">TV AL 550</option>
+            <option value="TV AP 838">TV AP 838</option>
+            <option value="TV AT 886">TV AT 886</option>
+            <option value="TV AT 775">TV AT 775</option>
+            <option value="TV AT 704">TV AT 704</option>
+            <option value="TV AR 879">TV AR 879</option>
+            <option value="TV AR 358">TV AR 358</option>
+            <option value="TV PM 003">TV PM 003</option>
+            <option value="TV PM 002">TV PM 002</option>
+            <option value="TV PM 006">TV PM 006</option>
+            <option value="TV PM 001">TV PM 001</option>
+            <option value="TV 70">TV 70</option>
+            <option value="TV 74">TV 74</option>
+          </select>
+
+          @error('vehicle')
+            <div class="text-red-500 mt-2 text-sm">
+              {{ $message }}
+            </div>
+          @enderror
         </div>
+
 
         <div class="mb-4">
           <label for="distance" class="sr-only">Kilometer Ran</label>
@@ -81,11 +142,35 @@
         </div>
 
         <div class="mb-4">
-          <label for="billImage" class="sr-only">Bill Image</label>
-          <input type="file" name="billImage" id="billImage" placeholder="Bill Image"
+          <label for="billImage" class="sr-only">Fuel Bill Image</label>
+          <input type="file" name="billImage" id="billImage" placeholder="Fuel Bill Image"
             class="br-gray-100 border-2 w-full p-4 rounded-lg @error('billImage') border-red-500 @enderror"
             value="{{ old('billImage') }}">
           @error('billImage')
+            <div class="text-red-500 mt-2 text-sm">
+              {{ $message }}
+            </div>
+          @enderror
+        </div>
+
+        <div class="mb-4">
+          <label for="inspection" class="sr-only">Inspection Cost</label>
+          <input type="text" name="inspection" id="inspection" placeholder="Inspection Cost"
+            class="br-gray-100 border-2 w-full p-4 rounded-lg @error('inspection') border-red-500 @enderror"
+            value="{{ old('inspection') }}">
+          @error('inspection')
+            <div class="text-red-500 mt-2 text-sm">
+              {{ $message }}
+            </div>
+          @enderror
+        </div>
+
+        <div class="mb-4">
+          <label for="inspectionImage" class="sr-only">Inspection Cost Image</label>
+          <input type="file" name="inspectionImage" id="inspectionImage" placeholder="Inspection Cost Image"
+            class="br-gray-100 border-2 w-full p-4 rounded-lg @error('inspectionImage') border-red-500 @enderror"
+            value="{{ old('inspectionImage') }}">
+          @error('inspectionImage')
             <div class="text-red-500 mt-2 text-sm">
               {{ $message }}
             </div>

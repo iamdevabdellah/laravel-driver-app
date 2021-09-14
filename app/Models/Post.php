@@ -14,6 +14,8 @@ class Post extends Model
         'name',
         'vehicle',
         'distance',
+        'inspection',
+        'inspectionImage',
         'bill',
         'billImage',
         'damage',

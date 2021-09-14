@@ -37,6 +37,7 @@ Route::get('/admin/home', [AdminController::class, 'index'])->name('admin.home')
 Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard')->middleware('is_admin');
 
 
+
 Route::get('/admin/search', [SearchController::class, 'view'])->name('admin.search');
 
 

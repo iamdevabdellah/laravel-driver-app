@@ -7,21 +7,39 @@
         <div class="text-center">
           <span
             class="inline-block py-1 px-2 rounded bg-indigo-50 text-blue-900 text-xs font-medium tracking-widest">{{ auth()->user()->username }}</span>
-          <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">Welcome, {{ auth()->user()->name }}
-          </h1>
-          <h3 class="text-3xl sm:text-5xl leading-normal font-extrabold tracking-tight text-gray-900">
-            <span class="text-blue-900">Porto Montenegro</span>
-          </h3>
-          <img class="mx-auto h-auto w-auto" src="{{ asset('/images/logo/site-logo.png') }}" alt="Workflow">
-          <a href="{{ route('admin.lists') }}">
-            <button class="bg-blue-900 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded">
-              See Records
-            </button>
-            <button class="bg-blue-900 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded">
-              Search Records
-            </button>
 
-          </a>
+
+          <h1 class="text-5xl text-blue-900 pt-2 font-bold ">Admin Dashboard</h1>
+          {{-- <p>Posts Information</p> --}}
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mt-10 lg:mt-20">
+
+            <div class="bg-transparent rounded text-center bg-indigo-50">
+              <p class="text-5xl px-10 py-5">{{ $driver_count }}</p>
+              <hr />
+              <p class="px-10 py-5">Total Driver</p>
+            </div>
+
+            <div class="bg-transparent text-center bg-indigo-50 rounded">
+              <p class="text-5xl px-10 py-5">{{ $record_count }}</p>
+              <hr />
+              <p class="px-10 py-5">Total Records</p>
+            </div>
+
+            <div class="rounded text-center bg-indigo-50">
+              <p class="text-5xl px-10 py-5">35</p>
+              <hr />
+              <p class="px-10 py-5">Total Vehicles</p>
+            </div>
+
+            <div class="bg-transparent rounded text-center bg-indigo-50">
+              <p class="text-5xl px-10 py-5">03</p>
+              <hr />
+              <p class="px-10 py-5">Vehicle Type</p>
+            </div>
+
+          </div>
+
 
         </div>
       </div>

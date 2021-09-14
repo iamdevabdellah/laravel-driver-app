@@ -129,7 +129,7 @@
               <option selected="true" disabled>Select Vehicle Type</option>
               <option value="Car">Car</option>
               <option value="Boat">Boat</option>
-              <option value="Buggy">Buggies</option>
+              <option value="Buggy">Buggy</option>
             </select>
 
             @error('vehicle_type')

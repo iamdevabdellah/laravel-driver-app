@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Post;
+use App\Models\User;
 
 class AdminController extends Controller
 {
@@ -16,9 +18,12 @@ class AdminController extends Controller
         return view('admin.home');
     }
 
-    public function dashboard()
-    {
-        return view('admin.dashboard');
+    public function dashboard(){
+
+        $record_count = Post::all()->count();
+        $driver_count = User::where('is_admin', '!=', 1)->count();
+
+        return view('admin.dashboard', compact('driver_count','record_count'));
     }
 
     public function all() {
